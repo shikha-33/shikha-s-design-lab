@@ -12,7 +12,18 @@ const Index = () => {
       <section className="section-padding">
         <div className="container mx-auto max-w-4xl px-6">
           <div className="animate-fade-in-up">
-            <h1 className="mb-6 text-foreground">
+            {/* Profile Picture Placeholder */}
+            <div className="flex justify-center mb-12">
+              <div className="relative">
+                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary via-primary/80 to-[hsl(220_60%_35%)] flex items-center justify-center shadow-xl border-4 border-background">
+                  <div className="w-40 h-40 rounded-full bg-background/10 backdrop-blur-sm flex items-center justify-center">
+                    <div className="text-6xl text-primary-foreground font-semibold">SR</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h1 className="mb-6 text-foreground text-center">
               Human-Computer Interaction Researcher & Designer
             </h1>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
@@ -73,43 +84,6 @@ const Index = () => {
                 Let's connect and collaborate
               </p>
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="section-padding">
-        <div className="container mx-auto max-w-4xl px-6 text-center">
-          <h2 className="mb-6 text-foreground">Let's Connect</h2>
-          <p className="mb-8 text-lg text-muted-foreground">
-            I'm always interested in discussing HCI research, AI in education, and collaboration opportunities.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              asChild
-              size="lg"
-              className="btn-primary"
-            >
-              <a href="mailto:shikha2022rajesh@gmail.com">
-                <Mail className="mr-2 h-5 w-5" />
-                Email Me
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              <a
-                href="https://www.linkedin.com/in/shikharajesh/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
-              </a>
-            </Button>
           </div>
         </div>
       </section>

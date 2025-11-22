@@ -30,6 +30,8 @@ const Projects = () => {
         "Evaluated automation impact on task completion",
         "Rapid prototyping and user testing",
       ],
+      link: "https://www.canva.com/design/DAGgFNsPYWg/jtmjbaUqVROgonFo_juhsA/edit",
+      linkText: "View Project",
       category: "Product Design",
     },
     {
@@ -61,6 +63,8 @@ const Projects = () => {
         "Created interactive data visualizations",
         "Presented data-driven insights to stakeholders",
       ],
+      link: "https://www.canva.com/design/DAGXucNEJV0/aANhqGA1eCSVnv6UsPKqEA/edit",
+      linkText: "View Project",
       category: "Data Science",
     },
     {
@@ -91,21 +95,6 @@ const Projects = () => {
     },
   ];
 
-  const devProjects = [
-    {
-      title: "COVID-19 Tracker Dashboard — React + Flask Website",
-      summary:
-        "Built a real-time dashboard integrating API data, visualizations, and clear user-facing communication.",
-      tools: ["React", "Flask", "APIs", "Data Visualization"],
-      contributions: [
-        "Built full-stack web application",
-        "Integrated real-time COVID-19 data APIs",
-        "Created interactive data visualizations",
-        "Designed clear user interface",
-      ],
-      category: "Software Development",
-    },
-  ];
 
   const strategyProjects = [
     {
@@ -132,6 +121,8 @@ const Projects = () => {
         "Built decision-support systems",
         "Presented recommendations to stakeholders",
       ],
+      link: "https://www.canva.com/design/DAGeMJdPEJA/QSXE9OZ3w1UIz7iUPasyew/edit",
+      linkText: "View Project",
       category: "Strategy",
     },
     {
@@ -164,6 +155,11 @@ const Projects = () => {
 
           {/* HCI & UX Projects */}
           <div className="mb-16">
+            {/* Section Image Placeholder */}
+            <div className="mb-8 h-48 rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center">
+              <span className="text-primary/40 font-medium">HCI & UX Portfolio Images</span>
+            </div>
+            
             <h2 className="mb-8 text-3xl font-semibold text-foreground">
               HCI, UX & Product Design
             </h2>
@@ -176,6 +172,11 @@ const Projects = () => {
 
           {/* Data & ML Projects */}
           <div className="mb-16">
+            {/* Section Image Placeholder */}
+            <div className="mb-8 h-48 rounded-2xl bg-gradient-to-r from-[hsl(220_60%_35%)]/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center">
+              <span className="text-primary/40 font-medium">Data Science Portfolio Images</span>
+            </div>
+            
             <h2 className="mb-8 text-3xl font-semibold text-foreground">
               Data Science & Machine Learning
             </h2>
@@ -186,20 +187,13 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Software Development */}
-          <div className="mb-16">
-            <h2 className="mb-8 text-3xl font-semibold text-foreground">
-              Software Development
-            </h2>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-              {devProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-          </div>
-
           {/* Strategy Projects */}
           <div>
+            {/* Section Image Placeholder */}
+            <div className="mb-8 h-48 rounded-2xl bg-gradient-to-r from-primary/20 via-[hsl(220_60%_35%)]/10 to-transparent border border-primary/20 flex items-center justify-center">
+              <span className="text-primary/40 font-medium">Strategy Portfolio Images</span>
+            </div>
+            
             <h2 className="mb-8 text-3xl font-semibold text-foreground">
               Strategy & Analytics
             </h2>

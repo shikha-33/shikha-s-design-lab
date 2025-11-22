@@ -14,7 +14,7 @@ const Footer = () => {
               Email
             </a>
             <a
-              href="https://www.linkedin.com/in/shikharajesh/"
+              href="https://www.linkedin.com/in/shikha-rajesh-/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground transition-colors hover:text-primary"
