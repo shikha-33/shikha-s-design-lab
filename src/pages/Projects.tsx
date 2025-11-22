@@ -5,7 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 const Projects = () => {
   const hciProjects = [
     {
-      title: "Neighborhood Notebook — HCI Design Project",
+      title: "Neighborhood Notebook - HCI Design Project",
       summary:
         "A mobile, map-based discovery platform for newcomers and exchange students in Vancouver, created through an HCI design cycle. Conducted interviews, affinity mapping, task analysis, conceptual modeling, and mid-fi prototyping in Figma. Explored how users rely on surface-level recommendations when information structures encourage shortcuts, informing design decisions around transparency, exploration, and skill-preserving workflows.",
       tools: ["Figma", "User Research", "Task Analysis", "Prototyping"],
@@ -20,7 +20,7 @@ const Projects = () => {
       category: "HCI & UX Design",
     },
     {
-      title: "SyncFlow — Winner at 2025 PMC Product Sprint",
+      title: "SyncFlow - TELUS x PMC | Winner at 2025 PMC Product Sprint",
       summary:
         "A collaborative productivity tool built during a 2-week sprint. Designed AI-assisted workflows, journey maps, and interaction models that exposed where automation improves flow and where it creates breakdowns. Experience includes rapid prototyping, communication design, and evaluating task structures in AI-integrated environments.",
       tools: ["Figma", "Journey Mapping", "AI Integration", "Product Design"],
@@ -35,9 +35,9 @@ const Projects = () => {
       category: "Product Design",
     },
     {
-      title: "Subletify — Student Housing Platform",
+      title: "Subletify - Student Housing Platform",
       summary:
-        "Designed trusted, transparent, user-centered flows for a student subletting platform. Built onboarding logic, communication pathways, and clarity-driven information structures. Analyzed engagement patterns to understand trust, friction points, and the impact of unclear workflows—insights directly transferable to educational design and AI-literacy content creation.",
+        "Designed trusted, transparent, user-centered flows for a student subletting platform. Built onboarding logic, communication pathways, and clarity-driven information structures. Analyzed engagement patterns to understand trust, friction points, and the impact of unclear workflows - insights directly transferable to educational design and AI-literacy content creation.",
       tools: ["UX Design", "User Flows", "Information Architecture"],
       contributions: [
         "Designed onboarding and communication flows",
@@ -53,7 +53,7 @@ const Projects = () => {
 
   const dataProjects = [
     {
-      title: "WiDS Case Competition — ML & Analytics Project",
+      title: "WiDS Case Competition - ML & Analytics Project",
       summary:
         "Built a data science pipeline analyzing rental trends using R, Power BI, Tableau, and scikit-learn. Performed feature engineering, modeling, error evaluation, and data storytelling. Experience with data visualization assistants and interdisciplinary modeling.",
       tools: ["R", "Python", "Power BI", "Tableau", "scikit-learn"],
@@ -81,7 +81,7 @@ const Projects = () => {
       category: "Data Analytics",
     },
     {
-      title: "Real Estate Price Prediction — Personal ML Project",
+      title: "Real Estate Price Prediction - Personal ML Project",
       summary:
         "Designed an ML workflow using KNN models, EDA, VIF, model selection, and pipeline iteration.",
       tools: ["Python", "scikit-learn", "Pandas", "Matplotlib"],
@@ -97,21 +97,9 @@ const Projects = () => {
 
 
   const strategyProjects = [
+
     {
-      title: "TELUS x PMC Sprint — Workflow Automation Project",
-      summary:
-        "Designed automation-enhanced workflows for prioritization and backlog management using JIRA, Sheets API, and UX workflow modeling.",
-      tools: ["JIRA", "Sheets API", "Workflow Design", "Automation"],
-      contributions: [
-        "Designed workflow automation systems",
-        "Built prioritization frameworks",
-        "Integrated JIRA with custom tools",
-        "UX analysis of automated workflows",
-      ],
-      category: "Strategy & Operations",
-    },
-    {
-      title: "Ascend SFU Case Competition — DEI Strategy",
+      title: "Ascend SFU Case Competition - DEI Strategy",
       summary:
         "Developed strategic frameworks, learner behavior models, and decision-support structures.",
       tools: ["Strategic Planning", "Behavioral Analysis", "Framework Design"],
@@ -126,7 +114,7 @@ const Projects = () => {
       category: "Strategy",
     },
     {
-      title: "BOLT First Byte Datathon — Financial Analytics",
+      title: "BOLT First Byte Datathon - Financial Analytics",
       summary:
         "Built a data analytics model detecting outliers and fraud indicators, supported by BI dashboards.",
       tools: ["Python", "Analytics", "BI Dashboards", "Fraud Detection"],
@@ -136,6 +124,8 @@ const Projects = () => {
         "Outlier detection and pattern analysis",
         "Data storytelling and presentation",
       ],
+      link: "https://www.canva.com/design/DAGg0eS0gk8/lZk85plIg3s0kF242oIyHw/edit?utm_content=DAGg0eS0gk8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      linkText: "View Project",
       category: "Data Analytics",
     },
   ];
@@ -149,17 +139,21 @@ const Projects = () => {
           <div className="mb-16 text-center">
             <h1 className="mb-4 text-foreground">Projects</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A collection of my work in HCI, UX design, data science, and product development—exploring how technology shapes learning, decision-making, and human behavior.
+              A collection of my work in HCI, UX design, data science, and product development - exploring how technology shapes learning, decision-making, and human behavior.
             </p>
           </div>
 
           {/* HCI & UX Projects */}
           <div className="mb-16">
             {/* Section Image Placeholder */}
-            <div className="mb-8 h-48 rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center">
-              <span className="text-primary/40 font-medium">HCI & UX Portfolio Images</span>
+            <div className="mb-8 h-64 rounded-2xl overflow-hidden border border-primary/20 group">
+              <img
+                src="/hci-ux-portfolio.png"
+                alt="HCI & UX Portfolio"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-            
+
             <h2 className="mb-8 text-3xl font-semibold text-foreground">
               HCI, UX & Product Design
             </h2>
@@ -173,10 +167,14 @@ const Projects = () => {
           {/* Data & ML Projects */}
           <div className="mb-16">
             {/* Section Image Placeholder */}
-            <div className="mb-8 h-48 rounded-2xl bg-gradient-to-r from-[hsl(220_60%_35%)]/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center">
-              <span className="text-primary/40 font-medium">Data Science Portfolio Images</span>
+            <div className="mb-8 h-64 rounded-2xl overflow-hidden border border-primary/20 group">
+              <img
+                src="/data-science-portfolio.png"
+                alt="Data Science Portfolio"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-            
+
             <h2 className="mb-8 text-3xl font-semibold text-foreground">
               Data Science & Machine Learning
             </h2>
@@ -190,10 +188,14 @@ const Projects = () => {
           {/* Strategy Projects */}
           <div>
             {/* Section Image Placeholder */}
-            <div className="mb-8 h-48 rounded-2xl bg-gradient-to-r from-primary/20 via-[hsl(220_60%_35%)]/10 to-transparent border border-primary/20 flex items-center justify-center">
-              <span className="text-primary/40 font-medium">Strategy Portfolio Images</span>
+            <div className="mb-8 h-64 rounded-2xl overflow-hidden border border-primary/20 group">
+              <img
+                src="/strategy-portfolio.png"
+                alt="Strategy Portfolio"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-            
+
             <h2 className="mb-8 text-3xl font-semibold text-foreground">
               Strategy & Analytics
             </h2>

@@ -1,6 +1,7 @@
 import { NavLink } from "@/components/NavLink";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,6 +10,7 @@ const Header = () => {
     { name: "About", path: "/" },
     { name: "Projects", path: "/projects" },
     { name: "Roles & Leadership", path: "/roles" },
+    { name: "Skills", path: "/skills" },
     { name: "Marketing", path: "/marketing" },
     { name: "Contact", path: "/contact" },
   ];
@@ -32,6 +34,7 @@ const Header = () => {
               {item.name}
             </NavLink>
           ))}
+          <ThemeToggle />
         </nav>
 
         {/* Mobile Menu Button */}
@@ -63,6 +66,9 @@ const Header = () => {
                 {item.name}
               </NavLink>
             ))}
+            <div className="pt-2">
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       )}

@@ -29,16 +29,28 @@ const Roles = () => {
         "Simplified technical topics for student audiences, crafted scripts and visuals, and managed research-focused communication pieces. Developed content that made quantum computing concepts approachable while maintaining technical accuracy. Created engagement pathways that helped students explore complex scientific ideas through clear, well-structured materials.",
     },
     {
-      title: "Science RXN Coordinator",
+      title: "Marketing Director",
       organization: "UBC Science Undergraduate Society",
       description:
-        "Designed and executed onboarding pathways for 100+ students, ensuring clarity, accessibility, and high-quality experience through organized communication. Built structured processes that helped new students navigate campus resources and academic expectations. Created documentation systems that made orientation information discoverable and actionable.",
+        "As Marketing Director, I led end-to-end marketing strategy for 40+ high-impact student events, combining audience insights with data-driven experimentation. I increased social media engagement by 50% by optimizing content timing, refining messaging, and applying targeted segmentation. I also implemented A/B testing workflows that strengthened campaign performance and supported decision-making across the society. This role reflects my ability to design user-centric communication systems, scale outreach, and deliver consistent, measurable results.",
     },
     {
       title: "Recreation Operations Staff",
       organization: "UBC Recreation",
       description:
         "Supported front-line interactions, delivering clear instructions and user-friendly processes for diverse student groups. Identified friction points in facility usage and contributed to process improvements. Developed communication approaches that made recreation services accessible to students with varying levels of familiarity and different needs.",
+    },
+    {
+      title: "Science RXN Coordinator",
+      organization: "UBC Science Undergraduate Society",
+      description:
+        "Designed and executed onboarding pathways for 100+ students, ensuring clarity, accessibility, and high-quality experience through organized communication. Built structured processes that helped new students navigate campus resources and academic expectations. Created documentation systems that made orientation information discoverable and actionable.",
+    },
+    {
+      title: "Imagine Day Orientation Leader",
+      organization: "University of British Columbia",
+      description:
+        "As an Orientation Leader, I guided and supported over 30 incoming students through their transition into university life. I facilitated community-building activities, designed inclusive group experiences, and communicated complex information clearly to diverse student backgrounds. This experience strengthened my ability to understand user needs, support first-time user journeys, and design environments where people feel welcomed, informed, and engaged - key principles I carry into UX, HCI, and product-focused work.",
     },
   ];
 
@@ -51,7 +63,7 @@ const Roles = () => {
           <div className="mb-16 text-center">
             <h1 className="mb-4 text-foreground">Roles & Leadership</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Campus leadership experiences that shaped my approach to communication design, structured workflows, and student-centered thinking—skills I bring to HCI research and educational technology.
+              Campus leadership experiences that shaped my approach to communication design, structured workflows, and student-centered thinking - skills I bring to HCI research and educational technology.
             </p>
           </div>
 
