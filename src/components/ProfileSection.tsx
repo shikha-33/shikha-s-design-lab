@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const ProfileSection = () => {
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden section-padding">
+        <section className="relative min-h-[10vh] flex items-center justify-center overflow-hidden pt-10 md:pt-14 lg:pt-16 pb-20 md:pb-28 lg:pb-32">
             <div className="container relative z-10 px-6">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Text Content */}
