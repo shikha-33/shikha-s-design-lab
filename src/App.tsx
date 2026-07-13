@@ -1,44 +1,29 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Projects from "./pages/Projects";
-import Roles from "./pages/Roles";
-import Marketing from "./pages/Marketing";
-import Skills from "./pages/Skills";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
+const Work = lazy(() => import("./pages/Work"));
+const CaseStudyPage = lazy(() => import("./pages/CaseStudyPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { BackgroundPattern } from "@/components/BackgroundPattern";
-import CustomCursor from "@/components/CustomCursor";
-
 const App = () => (
   <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" attribute="class">
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BackgroundPattern />
-        <CustomCursor />
-        <BrowserRouter>
+    <BrowserRouter>
+      <Suspense fallback={<div className="route-loading" role="status">Loading page…</div>}>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/roles" element={<Roles />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/marketing" element={<Marketing />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/work/:slug" element={<CaseStudyPage />} />
+            <Route path="/projects" element={<Navigate to="/work" replace />} />
+            <Route path="/roles" element={<Navigate to="/#experience" replace />} />
+            <Route path="/skills" element={<Navigate to="/#about" replace />} />
+            <Route path="/marketing" element={<Navigate to="/work" replace />} />
+            <Route path="/contact" element={<Navigate to="/#contact" replace />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+      </Suspense>
+    </BrowserRouter>
   </ThemeProvider>
 );
 

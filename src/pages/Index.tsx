@@ -1,80 +1,177 @@
+import { ArrowRight, Download, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProfileSection from "@/components/ProfileSection";
-import ContactSection from "@/components/ContactSection";
+import Seo from "@/components/Seo";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import { caseStudies } from "@/data/caseStudies";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <ProfileSection />
+const methods = [
+  "Semi-structured interviews",
+  "Usability testing",
+  "Task analysis",
+  "Thematic analysis",
+  "Experimental design",
+  "Quantitative analysis",
+  "Information architecture",
+  "Interactive prototyping",
+];
 
-      {/* Detailed Bio Section */}
-      <section className="section-padding pt-0">
-        <div className="container mx-auto max-w-4xl px-6">
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed animate-fade-in-up delay-100">
+const experiences = [
+  {
+    period: "2026 - Present",
+    title: "VP External & Marketing",
+    organization: "Residence Hall Association, UBC",
+    detail:
+      "Coordinate stakeholder communication and cross-campus initiatives across residence councils, mentoring student leaders and translating varied needs into clear plans.",
+  },
+  {
+    period: "2025 - Present",
+    title: "Marketing Director",
+    organization: "UBC Undergraduate Statistics Society",
+    detail:
+      "Translate statistical ideas into accessible student-facing content and use campaign evidence to refine communication and outreach.",
+  },
+  {
+    period: "2023 - 2024",
+    title: "Corporate Relations Chair",
+    organization: "UBC Science Undergraduate Society",
+    detail:
+      "Synthesized partner needs into actionable materials and workflows for more than 30 relationships, securing over $7,000 in sponsorship support.",
+  },
+];
+
+const Index = () => (
+  <div className="min-h-screen bg-background">
+    <Seo
+      title="Shikha Rajesh | Product & UX Researcher"
+      description="Product and UX researcher combining qualitative research, usability evaluation, experimentation, prototyping, and data analysis."
+    />
+    <a className="skip-link" href="#main-content">Skip to main content</a>
+    <Header />
+    <main id="main-content">
+      <section className="hero-section">
+        <div className="page-shell hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">Product & UX Research · HCI + Data</p>
+            <h1>I turn human behaviour into clearer product decisions.</h1>
+            <p className="hero-lede">
+              I’m Shikha, a fourth-year Integrated Sciences student at UBC combining Computer Science and Data Science. I study how people navigate complex systems, then use qualitative and quantitative evidence to improve them.
+            </p>
+            <div className="hero-actions">
+              <Link to="/work" className="button-primary">
+                Explore my work <ArrowRight aria-hidden="true" />
+              </Link>
+              <a href="/Shikha_Rajesh_WTAP_Resume.pdf" className="button-secondary" download>
+                Résumé <Download aria-hidden="true" />
+              </a>
+            </div>
+            <div className="hero-links" aria-label="Contact links">
+              <a href="mailto:shikha2022rajesh@gmail.com"><Mail aria-hidden="true" /> Email</a>
+              <a href="https://www.linkedin.com/in/shikha-rajesh-/" target="_blank" rel="noreferrer"><Linkedin aria-hidden="true" /> LinkedIn</a>
+            </div>
+          </div>
+          <figure className="hero-portrait">
+            <img
+              src="/profile-optimized.jpg"
+              alt="Shikha Rajesh presenting to an audience"
+              width="930"
+              height="844"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Researcher · Designer · Communicator</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="section-block" aria-labelledby="selected-work-heading">
+        <div className="page-shell">
+          <div className="section-heading-row">
+            <div>
+              <p className="eyebrow">Selected work</p>
+              <h2 id="selected-work-heading">Research with a decision at the end</h2>
+            </div>
+            <Link to="/work" className="text-link">View all work <ArrowRight aria-hidden="true" /></Link>
+          </div>
+          <div className="selected-work-grid">
+            {caseStudies.map((study) => <CaseStudyCard study={study} featured key={study.slug} />)}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-block section-tinted" id="about" aria-labelledby="about-heading">
+        <div className="page-shell about-grid">
+          <div>
+            <p className="eyebrow">About</p>
+            <h2 id="about-heading">A mixed-method researcher with a builder’s mindset.</h2>
+          </div>
+          <div className="prose-large">
             <p>
-              My research focus centers on understanding how automation reshapes learning behaviors and designing AI-integrated learning experiences that preserve critical thinking and skill development. I'm particularly interested in creating AI literacy materials, resilient workflows, and clear instructional structures that help students navigate increasingly AI-mediated educational environments.
+              My work sits between product research, interaction design, and applied analysis. I’m most engaged when a team has an ambiguous behaviour to understand, a design choice to test, or evidence that needs careful interpretation.
             </p>
             <p>
-              Through coursework in CPSC 344 (Introduction to Human-Computer Interaction), STAT 300/302 (Intermediate Statistics), and upcoming classes in CPSC 444 (Advanced HCI), CPSC 304 (Databases), CPSC 330 (Applied Machine Learning), and DSCI 310 (Reproducible Data Science), I've developed a foundation that blends UX research, qualitative analysis, prototyping, and communication design with technical depth in data science and machine learning.
-            </p>
-            <p>
-              What drives my work is a student perspective on how AI tools impact actual workflows, motivation, and learning patterns. I combine strong communication and documentation skills with cross-functional collaboration experience to explore questions around AI-invariant assessment design, skill-preserving automation, and educational technology that enhances rather than replaces human learning.
-            </p>
-            <p>
-              I'm actively seeking opportunities to contribute to HCI research labs, educational technology projects, and teams working on responsible AI integration in learning environments.
+              Across my HCI projects, I have moved from field interviews and affinity mapping to interactive prototypes, controlled experiments, thematic synthesis, and recommendations. I care about transparent reasoning: what the evidence supports, what it does not, and what the next study should resolve.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Quick Links */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-4xl px-6">
-          <div className="grid gap-6 md:grid-cols-3">
-            <a
-              href="/projects"
-              className="card-interactive group rounded-xl bg-card p-8 text-center"
-            >
-              <h3 className="mb-2 text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                View Projects
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Explore my HCI, UX, and data science work
-              </p>
-            </a>
-            <a
-              href="/roles"
-              className="card-interactive group rounded-xl bg-card p-8 text-center"
-            >
-              <h3 className="mb-2 text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                Roles & Leadership
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                My campus leadership experience
-              </p>
-            </a>
-            <a
-              href="#contact"
-              className="card-interactive group rounded-xl bg-card p-8 text-center"
-            >
-              <h3 className="mb-2 text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                Get in Touch
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Let's connect and collaborate
-              </p>
-            </a>
+      <section className="section-block" aria-labelledby="methods-heading">
+        <div className="page-shell methods-grid">
+          <div>
+            <p className="eyebrow">Research toolkit</p>
+            <h2 id="methods-heading">Methods selected for the question—not for the checklist.</h2>
+          </div>
+          <div className="method-list">
+            {methods.map((method, index) => (
+              <div className="method-item" key={method}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{method}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <ContactSection />
+      <section className="section-block section-tinted" id="experience" aria-labelledby="experience-heading">
+        <div className="page-shell">
+          <div className="section-heading-row">
+            <div>
+              <p className="eyebrow">Experience</p>
+              <h2 id="experience-heading">Leadership grounded in listening and follow-through</h2>
+            </div>
+          </div>
+          <div className="experience-list">
+            {experiences.map((experience) => (
+              <article className="experience-item" key={`${experience.title}-${experience.organization}`}>
+                <p className="experience-period">{experience.period}</p>
+                <div>
+                  <h3>{experience.title}</h3>
+                  <p className="experience-org">{experience.organization}</p>
+                </div>
+                <p>{experience.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <Footer />
-    </div>
-  );
-};
+      <section className="contact-section" id="contact" aria-labelledby="contact-heading">
+        <div className="page-shell contact-inner">
+          <div>
+            <p className="eyebrow">Contact</p>
+            <h2 id="contact-heading">Let’s make the next product decision clearer.</h2>
+          </div>
+          <div className="contact-actions">
+            <a href="mailto:shikha2022rajesh@gmail.com" className="button-primary">Email Shikha <Mail aria-hidden="true" /></a>
+            <a href="https://www.linkedin.com/in/shikha-rajesh-/" target="_blank" rel="noreferrer" className="button-secondary">LinkedIn <Linkedin aria-hidden="true" /></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+);
 
 export default Index;
