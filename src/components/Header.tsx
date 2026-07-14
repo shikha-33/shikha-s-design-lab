@@ -9,8 +9,10 @@ const Header = () => {
   const location = useLocation();
   const navItems = [
     { name: "Work", path: "/work" },
+    { name: "Roles", path: "/roles" },
+    { name: "Skills", path: "/skills" },
+    { name: "Marketing", path: "/marketing" },
     { name: "About", path: "/#about" },
-    { name: "Experience", path: "/#experience" },
     { name: "Contact", path: "/#contact" },
   ];
 
@@ -24,7 +26,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7" aria-label="Primary navigation">
+        <nav className="hidden lg:flex items-center gap-6" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a
               key={item.name}
@@ -34,15 +36,15 @@ const Header = () => {
               {item.name}
             </a>
           ))}
-          <a className="resume-link" href="/Shikha_Rajesh_WTAP_Resume.pdf" download>
-            Résumé <Download aria-hidden="true" />
+          <a className="resume-link" href="/Shikha_Rajesh_WTAP_Resume.pdf" download="Shikha's_Resume.pdf">
+            Resume <Download aria-hidden="true" />
           </a>
           <ThemeToggle />
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="mobile-menu-button md:hidden"
+          className="mobile-menu-button lg:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
@@ -57,7 +59,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="mobile-menu md:hidden">
+        <div className="mobile-menu lg:hidden">
           <nav className="container mx-auto flex flex-col gap-1 px-6 py-4" aria-label="Mobile navigation">
             {navItems.map((item) => (
               <a
@@ -69,8 +71,8 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <a className="mobile-nav-link" href="/Shikha_Rajesh_WTAP_Resume.pdf" download onClick={closeMenu}>
-              Download résumé
+            <a className="mobile-nav-link" href="/Shikha_Rajesh_WTAP_Resume.pdf" download="Shikha's_Resume.pdf" onClick={closeMenu}>
+              Download resume
             </a>
             <div className="pt-3">
               <ThemeToggle />

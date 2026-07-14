@@ -238,7 +238,7 @@ export const caseStudies: CaseStudy[] = [
       "Run a larger follow-up with a between-subjects device design to separate device effects from learning effects.",
     ],
     outcome:
-      "No main or interaction effect reached statistical significance, but converging behavioural and qualitative evidence supported Menu B as the better next iteration. The study also identified document architecture—not device type—as the clearest design risk.",
+      "No main or interaction effect reached statistical significance, but converging behavioural and qualitative evidence supported Menu B as the better next iteration. The study also identified document architecture, not device type, as the clearest design risk.",
     limitations: [
       "N=10 left the experiment underpowered and limited generalizability.",
       "Repeating the same tasks produced a strong second-device learning effect.",

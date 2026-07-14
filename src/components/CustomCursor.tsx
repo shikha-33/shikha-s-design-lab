@@ -1,84 +1,72 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const CustomCursor = () => {
-    const cursorRef = useRef<HTMLDivElement>(null);
-    const followerRef = useRef<HTMLDivElement>(null);
-    const [isHovering, setIsHovering] = useState(false);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const cursor = cursorRef.current;
-        const follower = followerRef.current;
+  useEffect(() => {
+    if (window.matchMedia("(pointer: coarse), (prefers-reduced-motion: reduce)").matches) return;
 
-        if (!cursor || !follower) return;
+    const dot = dotRef.current;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
 
-        let mouseX = 0;
-        let mouseY = 0;
-        let followerX = 0;
-        let followerY = 0;
+    let pointerX = -100;
+    let pointerY = -100;
+    let ringX = pointerX;
+    let ringY = pointerY;
+    let frame = 0;
 
-        const onMouseMove = (e: MouseEvent) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+    const setInteractiveState = (target: EventTarget | null) => {
+      const element = target instanceof HTMLElement ? target : null;
+      const interactive = Boolean(element?.closest("a, button, [data-cursor='interactive']"));
+      ring.classList.toggle("cursor-active", interactive);
+      dot.classList.toggle("cursor-dot-active", interactive);
+    };
 
-            // Immediate update for the dot
-            cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    const onMove = (event: PointerEvent) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      dot.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
+      setInteractiveState(event.target);
+    };
 
-            // Check if hovering over interactive elements
-            const target = e.target as HTMLElement;
-            const isInteractive =
-                target.tagName === 'A' ||
-                target.tagName === 'BUTTON' ||
-                target.closest('a') ||
-                target.closest('button') ||
-                target.classList.contains('card-interactive') ||
-                target.classList.contains('glass-card');
+    const onLeave = () => {
+      dot.classList.add("cursor-hidden");
+      ring.classList.add("cursor-hidden");
+    };
 
-            setIsHovering(!!isInteractive);
-        };
+    const onEnter = () => {
+      dot.classList.remove("cursor-hidden");
+      ring.classList.remove("cursor-hidden");
+    };
 
-        const animate = () => {
-            // Lerp for the follower (smooth delay)
-            // Lower factor = slower/smoother follow (0.1 is good for fluid feel)
-            followerX += (mouseX - followerX) * 0.1;
-            followerY += (mouseY - followerY) * 0.1;
+    const animate = () => {
+      ringX += (pointerX - ringX) * 0.15;
+      ringY += (pointerY - ringY) * 0.15;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+      frame = requestAnimationFrame(animate);
+    };
 
-            follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
+    window.addEventListener("pointermove", onMove);
+    document.documentElement.addEventListener("mouseleave", onLeave);
+    document.documentElement.addEventListener("mouseenter", onEnter);
+    frame = requestAnimationFrame(animate);
 
-            requestAnimationFrame(animate);
-        };
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("mouseleave", onLeave);
+      document.documentElement.removeEventListener("mouseenter", onEnter);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
 
-        window.addEventListener("mousemove", onMouseMove);
-        const animationId = requestAnimationFrame(animate);
-
-        return () => {
-            window.removeEventListener("mousemove", onMouseMove);
-            cancelAnimationFrame(animationId);
-        };
-    }, []);
-
-    // Don't render on touch devices
-    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
-        return null;
-    }
-
-    return (
-        <>
-            {/* Main Dot */}
-            <div
-                ref={cursorRef}
-                className="fixed top-0 left-0 w-3 h-3 bg-primary rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference transition-opacity duration-300"
-                style={{ willChange: 'transform' }}
-            />
-
-            {/* Fluid Follower */}
-            <div
-                ref={followerRef}
-                className={`fixed top-0 left-0 border border-primary/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out ${isHovering ? 'w-12 h-12 bg-primary/10 border-primary' : 'w-8 h-8'
-                    }`}
-                style={{ willChange: 'transform' }}
-            />
-        </>
-    );
+  return (
+    <>
+      <div ref={ringRef} className="custom-cursor-ring" aria-hidden="true" />
+      <div ref={dotRef} className="custom-cursor-dot" aria-hidden="true" />
+    </>
+  );
 };
 
 export default CustomCursor;

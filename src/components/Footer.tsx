@@ -8,7 +8,10 @@ const Footer = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a href="/work" className="footer-link">Work</a>
-            <a href="/Shikha_Rajesh_WTAP_Resume.pdf" className="footer-link" download>Résumé</a>
+            <a href="/roles" className="footer-link">Roles</a>
+            <a href="/skills" className="footer-link">Skills</a>
+            <a href="/marketing" className="footer-link">Marketing</a>
+            <a href="/Shikha_Rajesh_WTAP_Resume.pdf" className="footer-link" download="Shikha's_Resume.pdf">Resume</a>
             <a
               href="mailto:shikha2022rajesh@gmail.com"
               className="footer-link"

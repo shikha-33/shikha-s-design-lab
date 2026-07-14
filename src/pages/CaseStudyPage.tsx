@@ -109,7 +109,7 @@ const CaseStudyPage = () => {
 
           <section className="case-section" aria-labelledby="outcome-heading">
             <div className="case-shell case-two-column">
-              <div><p className="eyebrow">Outcome</p><h2 id="outcome-heading">A qualified answer—and a better next question.</h2></div>
+              <div><p className="eyebrow">Outcome</p><h2 id="outcome-heading">A qualified answer and a better next question.</h2></div>
               <div className="case-prose"><p className="outcome-copy">{study.outcome}</p><h3>Limitations</h3><ul>{study.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul></div>
             </div>
           </section>
